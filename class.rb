@@ -1,22 +1,24 @@
 class Person
-  attr_accessor :name, :sex, :age, :occupation, :school
+  attr_accessor :name, :age, :sex, :profession, :school
 
   def initialize(params)
-    @name = params[:name]
-    @sex = params[:sex]
-    @age = params[:age]
-    @occupation = params[:occupation]
-    @school = params[:school]
+    self.name = params[:name]
+    self.age = params[:age]
+    self.sex = params[:sex]
+    self.profession = params[:profession]
+    self.school = params[:school]
   end
 
   def to_s
-    "#{@name} is #{@age} year old #{@sex}. She works as a #{@occupation} and will attend #{@school}."
+    "#{name} is a #{age} year old #{sex}. #{sex == 'boy' ? 'He' : 'She'} is a #{profession} who attends #{school}."
   end
 end
 
+tamara = Person.new :name => "Tamara", :age => 27, :sex => "girl", :profession => "linguist", :school => "University of Hawaii"
+jimmy = Person.new :name => "Jimmy", :age => 29, :sex => "boy", :profession => "programmer", :school => "LOL NOTHING"
 
-
-tamara = Person.new({:name => "Tamara", :sex => "female", :age => 27, :occupation => "teacher", :school => "U of Hawaii"})
 puts tamara
-jimmy = Person.new :name => "Jimmy", :sex => "male", :age => 29, :occupation => "web developer", :school => "[fuckthat]"
 puts jimmy
+
+# Tamara is a 27 year old girl. She is a linguist who attends University of Hawaii.
+# Jimmy is a 29 year old boy. He is a programmer who attends LOL NOTHING.
